@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name" translatable="false">小鱼消消乐</string>
+    <string name="header" translatable="false">通关有神秘奖励</string>
+    <string name="high_score">最高分</string>
+    <string name="score">得分</string>
+    <string name="instructionsone" translatable="false"></string>
+    <string name="instructionstwo" translatable="false"> </string>
+    <string name="instructionsthree" translatable="false"> </string>
+    <string name="you_win">你好叻啊!</string>
+    <string name="game_over">菜鸡!</string>
+    <string name="go_on">点击继续</string>
+    <string name="for_now">返回</string>
+    <string name="endless">无尽模式</string>
+
+    <!-- Confirmation dialog-->
+    <string name="reset">重置</string>
+    <string name="continue_game">取消</string>
+    <string name="reset_dialog_title">重置</string>
+    <string name="reset_dialog_message">确定要重置游戏吗？</string>
+
+    <string name="startai" translatable="false">OpenAI</string>
+    <string name="startai_dialog_title" translatable="false">OpenAi?</string>
+    <string name="startai_dialog_message" translatable="false">Are you sure you Open AI the game?</string>
+</resources>
