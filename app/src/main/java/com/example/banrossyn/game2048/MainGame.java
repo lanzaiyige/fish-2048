@@ -40,16 +40,23 @@ public class MainGame {
     private static final int GAME_ENDLESS_WON = 3;
     private static final String HIGH_SCORE = "最高分";
     private static int endingMaxValue;
+    /* 棋盘x轴最大长度*/
     final int numSquaresX = 4;
+    /* 棋盘y轴最大长度*/
     final int numSquaresY = 4;
     private final Context mContext;
     private final MainView mView;
     public Grid grid = null;
     public AnimationGrid aGrid;
+    /*标识是否能回撤*/
     public boolean canUndo;
+    /*当前分数*/
     public long score = 0;
+    /*最高分*/
     public long highScore = 0;
+    /*上一步分数*/
     public long lastScore = 0;
+    /*缓存分数*/
     private long bufferScore = 0;
 
 
@@ -84,13 +91,19 @@ public class MainGame {
         mView.invalidate();
     }
 
+    /*
+    新游戏预设初始方块
+     */
     private void addStartTiles() {
         int startTiles = 2;
-        for (int xx = 0; xx < startTiles; xx++) {
+        for (int i = 0; i < startTiles; i++) {
             this.addRandomTile();
         }
     }
 
+    /*
+    新增方块
+     */
     private void addRandomTile() {
         if (grid.isCellsAvailable()) {
             int value = Math.random() < 0.9 ? 2 : 4;
@@ -99,12 +112,18 @@ public class MainGame {
         }
     }
 
+    /*
+    新增方块显示到棋盘上
+     */
     private void spawnTile(Tile tile) {
         grid.insertTile(tile);
         aGrid.startAnimation(tile.getX(), tile.getY(), SPAWN_ANIMATION,
                 SPAWN_ANIMATION_TIME, MOVE_ANIMATION_TIME, null); //Direction: -1 = EXPANDING
     }
 
+    /*
+    最高分写入sharepreference
+     */
     private void recordHighScore() {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(mContext);
         SharedPreferences.Editor editor = settings.edit();
@@ -112,6 +131,9 @@ public class MainGame {
         editor.commit();
     }
 
+    /*
+    获取历史最高分
+     */
     private long getHighScore() {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(mContext);
         return settings.getLong(HIGH_SCORE, -1);
@@ -127,6 +149,9 @@ public class MainGame {
         }
     }
 
+    /*
+    移动tile到cell处
+     */
     private void moveTile(Tile tile, Cell cell) {
         grid.field[tile.getX()][tile.getY()] = null;
         grid.field[cell.getX()][cell.getY()] = tile;
@@ -234,6 +259,7 @@ public class MainGame {
 
         if (moved) {
             saveUndoState();
+            addRandomTile();
             addRandomTile();
             checkLose();
         }

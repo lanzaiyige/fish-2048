@@ -12,9 +12,9 @@ public class AnimationGrid {
     public AnimationGrid(int x, int y) {
         field = new ArrayList[x][y];
 
-        for (int xx = 0; xx < x; xx++) {
-            for (int yy = 0; yy < y; yy++) {
-                field[xx][yy] = new ArrayList<>();
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                field[i][j] = new ArrayList<>();
             }
         }
     }

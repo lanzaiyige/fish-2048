@@ -22,11 +22,15 @@ import java.util.ArrayList;
 public class MainView extends View {
 
     //Internal Constants
+    // 方块动画移动时间间隔
     static final int BASE_ANIMATION_TIME = 100000000;
     private static final String TAG = MainView.class.getSimpleName();
+    // 方块合并的速度
     private static final float MERGING_ACCELERATION = (float) -0.5;
     private static final float INITIAL_VELOCITY = (1 - MERGING_ACCELERATION) / 4;
-    public final int numCellTypes = 21;//棋子种类
+    // 棋子种类
+    public final int numCellTypes = 21;
+
     private final BitmapDrawable[] bitmapCell = new BitmapDrawable[numCellTypes];
     public final MainGame game;
     //Internal variables
@@ -49,17 +53,17 @@ public class MainView extends View {
     //Timing
     private long lastFPSTime = System.nanoTime();
     //Text
-    private float titleTextSize;//标题字体大小
-    private float bodyTextSize;//分数栏大小
-    private float headerTextSize;//标题字体大小
-    private float instructionsTextSize;//游戏说明字体大小
-    private float gameOverTextSize;//游戏结束字体
-    private int cellSize = 0;//方块大小
-    private float textSize = 0;//字体大小
-    private float cellTextSize = 0;//方块字体大小
-    private int gridWidth = 0;//分割线宽度
-    private int textPaddingSize;//分数区域大小
-    private int iconPaddingSize;//按钮区域大小
+    private float titleTextSize;        //标题字体大小
+    private float bodyTextSize;         //分数栏大小
+    private float headerTextSize;       //标题字体大小
+    private float instructionsTextSize; //游戏说明字体大小
+    private float gameOverTextSize;     //游戏结束字体
+    private int cellSize = 0;           //方块大小
+    private float textSize = 0;         //字体大小
+    private float cellTextSize = 0;     //方块字体大小
+    private int gridWidth = 0;          //分割线宽度
+    private int textPaddingSize;        //分数区域大小
+    private int iconPaddingSize;        //按钮区域大小
     //Assets
     private Drawable backgroundRectangle;
     private Drawable lightUpRectangle;
